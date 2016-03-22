@@ -25,7 +25,6 @@ function [B, P] = lu_factorisation(A)
                 A(i,j) = A(i,j) - B(i,k) * A(k,j);
             end
         end
-        %disp(A);
     end
     B= A + B;
 end
