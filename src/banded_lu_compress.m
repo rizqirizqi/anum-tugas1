@@ -1,4 +1,4 @@
-function [L, U] = banded_store_lu(A)
+function [L, U] = banded_lu_compress(A)
     [A, p, q] = banded_store(A)
     [~,n] = size(A);
 

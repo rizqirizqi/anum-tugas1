@@ -1,4 +1,4 @@
-function [B, p, q] = banded_store(A)
+function [B, p, q] = banded_compress(A)
     [n,n] = size(A);
     p = 0;
     q = 0;
