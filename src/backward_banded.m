@@ -1,13 +1,13 @@
-function [x] = backward(A,y,p,q)
+function [x] = backward_banded(A,y,p,q)
 	n=length(y);	
 	x=zeros(n,1);
-	x(n) = y(n) / A(n,n);
+	x(n) = y(n) / A(calc_i(n,n,p),n);
 	for i = n-1:-1:1
 	   sum = 0;
        for j = min(p+i,n):-1:i+1
-           sum = sum + (A(i,j) * x(j));
+           sum = sum + (A(calc_i(i,j,p),j) * x(j));
        end
-       x(i) = (y(i) - sum) / A(i,i);
+       x(i) = (y(i) - sum) / A(calc_i(i,i,p),i);
     end 
 end
 
