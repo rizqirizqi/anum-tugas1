@@ -1,7 +1,0 @@
-function[banded] = bandify[M,p,q]
-    for i = 0:size(M)
-        for j = 0:size(M)
-            M(i-j+p,j-i+q) = 0;
-        end
-    end
-end
