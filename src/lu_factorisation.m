@@ -3,7 +3,8 @@ function [B, P] = lu_factorisation(A)
     if (m ~= n) 
         throw(MException('ERR:MATRIXNOTSQUARE', 'Inputed Matrix Not Square'));
     end
-    L = eye(n);
+    %L = eye(n);
+    B = zeros(n);
     P = 1:n;
     for k = 1:n-1
         [c, m] = max(abs(A(k:n,k)));
@@ -14,15 +15,16 @@ function [B, P] = lu_factorisation(A)
         
         A([k m],:) = A([m k],:);
         P([k m]) = P([m k])
-        L([k m],1:k-1) = L([m k],1:k-1);
+        %L([k m],1:k-1) = L([m k],1:k-1);
+        B([k m],1:k-1) = B([m k],1:k-1);
         
         for i = k+1:n
-            L(i,k)= A(i,k) / A(k,k);
+            B(i,k)= A(i,k) / A(k,k);
             for j = k:n
-                A(i,j) = A(i,j) - L(i,k) * A(k,j);
+                A(i,j) = A(i,j) - B(i,k) * A(k,j);
             end
         end
-        %disp(L);
+        %disp(A);
     end
-    B= A + L - eye(n);
+    B= A + B;
 end
