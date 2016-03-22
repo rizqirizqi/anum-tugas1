@@ -1,5 +1,11 @@
 function [x] = lu_matrix(A,b)
-	[L,U,P] = lu_factorisation(A);
-	x = lu_solver(L,U,P*b);
+	[B,P] = lu_factorisation(A);
+    [n,~] = size(A); 
+    temp = b;
+    disp(b);
+    disp(P);
+    for i = 1:n
+        b(i) = temp(P(i));
+    end
+	x = lu_solver(B,b);
 end
-

@@ -14,7 +14,8 @@ function [B, P] = lu_factorisation(A)
         end
         
         A([k m],:) = A([m k],:);
-        P([k m]) = P([m k])
+        P([k m]) = P([m k]);
+        %P([k m],:) = P([m k],:);
         %L([k m],1:k-1) = L([m k],1:k-1);
         B([k m],1:k-1) = B([m k],1:k-1);
         

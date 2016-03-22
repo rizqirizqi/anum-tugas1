@@ -1,4 +1,4 @@
-function [x] = lu_solver(L,U,b)
-	y = forward(L,b);
-	x = backward(U,y);
+function [x] = lu_solver(B,b)
+	y = forward(B,b);
+	x = backward(B,y);
 end

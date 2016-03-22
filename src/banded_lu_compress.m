@@ -1,5 +1,5 @@
-function [L, U] = banded_lu_compress(A)
-    [A, p, q] = banded_compress(A)
+function [L, U, p, q] = banded_lu_compress(A)
+    [A, p, q] = banded_compress(A);
     [~,n] = size(A);
 
     L= zeros(p+q+1,n);
