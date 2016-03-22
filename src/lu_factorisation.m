@@ -1,4 +1,4 @@
-function [L, U, P] = lu_factorisation(A)
+function [B, P] = lu_factorisation(A)
     [m, n] = size(A);
     if (m ~= n) 
         throw(MException('ERR:MATRIXNOTSQUARE', 'Inputed Matrix Not Square'));
@@ -24,6 +24,5 @@ function [L, U, P] = lu_factorisation(A)
         end
         %disp(L);
     end
-    U = A;
+    B= A + L - eye(n);
 end
-
