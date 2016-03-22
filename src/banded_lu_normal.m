@@ -1,7 +1,5 @@
-function [L, U] = banded_lu_normal(A)
+function [L, U] = banded_lu_normal(A,p,q)
     [n, n] = size(A);
-    p = 1;
-    q = 2;
 
     L= eye(n);
     U= zeros(n);
